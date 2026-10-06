@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社团报名</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>社团报名</h1>
+    <p>加入我们，一起做喜欢的事</p>
+  </header>
+  <nav>
+    <a href="#intro">报名说明</a>
+    <a href="#form">开始报名</a>
+  </nav>
+  <main>
+    <section id="intro">
+      <h2>报名说明</h2>
+      <p>信息仅用于报名登记，两分钟填完，我们会尽快联系你。</p>
+    </section>
+    <section id="form">
+      <h2>报名表单</h2>
+      <form action="#" method="get">
+        <p>
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" placeholder="你的真实姓名" required>
+        </p>
+        <p>
+          <label for="mail">联系邮箱</label>
+          <input type="email" id="mail" name="mail" placeholder="方便我们联系你" required>
+        </p>
+        <p>意向部门</p>
+        <p>
+          <label><input type="radio" name="score" value="5" checked> 技术部</label>
+          <label><input type="radio" name="score" value="4"> 宣传部</label>
+          <label><input type="radio" name="score" value="3"> 外联部</label>
+        </p>
+        <p>感兴趣的活动（可多选）</p>
+        <p>
+          <label><input type="checkbox" name="topic" value="layout"> 编程竞赛</label>
+          <label><input type="checkbox" name="topic" value="js"> 技术分享</label>
+          <label><input type="checkbox" name="topic" value="chart"> 户外团建</label>
+        </p>
+        <p>
+          <label for="advice">自我介绍</label><br>
+          <textarea id="advice" name="advice" rows="4" maxlength="200" placeholder="简单介绍一下自己"></textarea>
+        </p>
+        <p>
+          <button type="submit">提交报名</button>
+        </p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>软件开发综合实践 · 自主实践任务</p>
+  </footer>
+</body>
+</html>
