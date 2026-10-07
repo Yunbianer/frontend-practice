@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消费记账数据看板</title>
+  <link href="libs/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .chart-box { height: 360px; }
+    #status { display: none; }
+    #filters .btn { margin: 0 6px 6px 0; }
+  </style>
+</head>
+<body class="container py-4">
+  <header>
+    <h1 class="h3">消费记账数据看板</h1>
+    <p class="text-muted" id="sub-title">数据来源：个人记账App导出（模拟数据）</p>
+  </header>
+
+  <!-- 三种状态演示：正常 / 失败 / 空数据 -->
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <button id="btn-normal" class="btn btn-sm btn-success">演示：正常加载</button>
+    <button id="btn-error" class="btn btn-sm btn-danger">演示：加载失败</button>
+    <button id="btn-empty" class="btn btn-sm btn-secondary">演示：空数据</button>
+  </div>
+
+  <p id="status" class="alert alert-warning"></p>
+
+  <section class="row g-3 mb-4" id="cards"></section>
+
+  <!-- jQuery 交互：按类别筛选柱状图 -->
+  <div id="filters" class="mb-2"></div>
+
+  <section class="row g-3">
+    <div class="col-lg-6">
+      <h2 class="h5">各月分类支出（ECharts堆叠柱状图，单位：元）</h2>
+      <div id="bar-chart" class="chart-box"></div>
+      <p class="small text-muted">标题：各月分类支出　|　单位：元　|　数据来源：个人记账App导出（模拟数据）</p>
+    </div>
+    <div class="col-lg-6">
+      <h2 class="h5">各类别支出占比（Chart.js饼图，单位：元）</h2>
+      <div class="chart-box"><canvas id="pie-chart"></canvas></div>
+      <p class="small text-muted">标题：各类别支出占比　|　单位：元　|　数据来源：个人记账App导出（模拟数据）</p>
+    </div>
+  </section>
+
+  <script src="libs/jquery-3.7.1.min.js"></script>
+  <script src="libs/bootstrap.bundle.min.js"></script>
+  <script src="libs/echarts.min.js"></script>
+  <script src="libs/chart.umd.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
