@@ -33,3 +33,30 @@ console.log('总消费：', totalExpense(cleanExpenses(expenses)));
 console.log('平均消费：', averageExpense(cleanExpenses(expenses)));
 console.log('最大单笔：', biggestExpense(cleanExpenses(expenses)));
 console.log('大额消费：', highExpenses(cleanExpenses(expenses)));
+
+// 各分类消费合计
+const categoryTotal = (list) => {
+  return list.reduce((acc, e) => {
+    acc[e.category] = (acc[e.category] || 0) + e.amount;
+    return acc;
+  }, {});
+};
+
+// 格式化报告
+const report = (list) => {
+  const valid = cleanExpenses(list);
+  if (valid.length === 0) {
+    return '没有有效消费记录';
+  }
+  const dist = categoryTotal(valid);
+  const distStr = Object.keys(dist).map(k => `${k} ${dist[k]} 元`).join('、');
+  return `有效消费 ${valid.length} 笔，总消费 ${totalExpense(valid)} 元，平均每笔 ${averageExpense(valid)} 元，最大单笔 ${biggestExpense(valid).amount} 元（${biggestExpense(valid).item}）；
+分类合计：${distStr}；
+大额消费（30元及以上）：${highExpenses(valid).join('、') || '无'}`;
+};
+
+try {
+  console.log(report(expenses));
+} catch (err) {
+  console.error('报告生成失败：', err.message);
+}
