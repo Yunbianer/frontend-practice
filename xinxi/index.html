@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系人列表</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; max-width: 480px; margin: 24px auto; padding: 0 16px; }
+    li.done { text-decoration: line-through; color: #999; }
+    .del { margin-left: 12px; cursor: pointer; }
+    .tip { color: #c00; font-size: 14px; min-height: 20px; }
+    .filters { margin: 12px 0; }
+    .filters button { margin-right: 8px; }
+  </style>
+</head>
+<body>
+  <h1>联系人列表</h1>
+  <form id="add-form">
+    <input type="text" id="number-input" placeholder="有哪些人？">
+    <button type="submit">添加</button>
+  </form>
+  <p class="tip" id="tip"></p>
+  <div class="filters">
+    <button data-filter="all">全部</button>
+    <button data-filter="active">未联系</button>
+    <button data-filter="done">已联系</button>
+  </div>
+  <ul id="number-list"></ul>
+  <script src="app.js"></script>
+</body>
+</html>
