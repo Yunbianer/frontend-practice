@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "第一食堂", "floor": "1-2层", "cuisine": "家常/面食", "rating": 4.3, "busyLevel": 58, "openTime": "06:30-20:30", "avgPrice": 12, "seats": 600, "recommend": ["红烧肉套餐", "兰州拉面"] },
+  { "id": 2, "name": "第二食堂", "floor": "1-3层", "cuisine": "川湘/小吃", "rating": 4.6, "busyLevel": 82, "openTime": "06:30-21:30", "avgPrice": 14, "seats": 800, "recommend": ["麻辣香锅", "酸辣粉", "夜宵烧烤"] },
+  { "id": 3, "name": "清真食堂", "floor": "1层", "cuisine": "清真", "rating": 4.4, "busyLevel": 45, "openTime": "07:00-20:00", "avgPrice": 13, "seats": 220, "recommend": ["新疆大盘鸡", "牛肉拉面"] },
+  { "id": 4, "name": "教工餐厅", "floor": "1层", "cuisine": "精致中餐", "rating": 4.7, "busyLevel": 35, "openTime": "11:00-19:00", "avgPrice": 20, "seats": 150, "recommend": ["清蒸鲈鱼", "时蔬小炒"] },
+  { "id": 5, "name": "第三食堂", "floor": "1-2层", "cuisine": "快餐/盖饭", "rating": 4.1, "busyLevel": 63, "openTime": "06:30-20:30", "avgPrice": 11, "seats": 500, "recommend": ["黄焖鸡米饭", "鸡排饭"] }
+]
