@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园自习与生活服务中心</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- 自定义样式 -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== 顶部导航 ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-graduation-cap"></i>校园生活服务中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" data-page="home" href="index.html">首页总览</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="study" href="study.html">自习室查询</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="canteen" href="canteen.html">食堂信息</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== 英雄区 ===== -->
+  <header class="hero">
+    <div class="container">
+      <h1>你好，同学 👋 欢迎来到校园生活服务中心</h1>
+      <p>实时掌握自习室座位、食堂客流与场馆动态，让学习生活更高效、更从容。</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== 统计卡片 ===== -->
+    <section class="mb-4">
+      <div class="row g-3" id="stat-cards">
+        <!-- 由 index.js 渲染 -->
+      </div>
+    </section>
+
+    <!-- ===== 图表区（两类：折线图 + 柱状图） ===== -->
+    <section class="mb-4">
+      <div class="row g-3">
+        <div class="col-lg-7">
+          <div class="card-custom p-3">
+            <h6 class="mb-3"><i class="fa-solid fa-chart-line text-primary"></i> 今日各时段人流趋势</h6>
+            <div id="chart-flow" class="chart-box"></div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card-custom p-3">
+            <h6 class="mb-3"><i class="fa-solid fa-chart-column text-primary"></i> 各场馆使用率</h6>
+            <div id="chart-building" class="chart-box"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 三维展示 + 周趋势 ===== -->
+    <section class="mb-4">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card-custom p-3">
+            <h6 class="mb-3">
+              <i class="fa-solid fa-cube text-primary"></i> 校园场馆三维导览
+              <small class="text-muted float-end">可拖动旋转 · 滚轮缩放</small>
+            </h6>
+            <div id="three-container">
+              <div id="three-loading">
+                <div class="spinner-custom"></div>
+                <span>三维场景加载中…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card-custom p-3">
+            <h6 class="mb-3"><i class="fa-solid fa-chart-area text-primary"></i> 本周访问趋势</h6>
+            <div id="week-chart" class="chart-box"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 通知公告 ===== -->
+    <section class="mb-4">
+      <div class="card-custom p-3">
+        <h6 class="mb-3"><i class="fa-solid fa-bullhorn text-primary"></i> 最新通知</h6>
+        <div id="notice-list">
+          <!-- 由 index.js 渲染 -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="site-footer">
+    <div>© 2026 校园自习与生活服务中心 · 数据每 5 分钟更新一次 · <a href="help.html" class="text-white-50">运行说明</a> · 课程设计作品</div>
+  </footer>
+
+  <!-- ===== 依赖库 ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <!-- Three.js（使用全局版本，含 OrbitControls） -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- 项目脚本 -->
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

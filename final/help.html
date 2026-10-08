@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>运行说明 - 校园生活服务中心</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar navbar-expand-lg fixed-top site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-graduation-cap"></i>校园生活服务中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" data-page="home" href="index.html">首页总览</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="study" href="study.html">自习室查询</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="canteen" href="canteen.html">食堂信息</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>运行说明</h1>
+      <p>本页说明项目如何运行、包含哪些功能，以及遇到报错时该怎么办。</p>
+    </div>
+  </header>
+
+  <main class="container pb-4">
+
+    <!-- 如何运行 -->
+    <section class="card-custom p-4 mb-3">
+      <h5 class="mb-3"><i class="fa-solid fa-play text-primary"></i> 一、如何运行（重要）</h5>
+      <p>
+        本项目通过代码读取本地的 JSON 数据文件。现代浏览器出于安全限制，
+        <strong>直接双击打开 HTML 文件（file:// 方式）会导致数据加载失败</strong>。
+        因此需要先在项目目录启动一个本地服务器，再用浏览器访问。
+      </p>
+      <p class="text-muted">项目目录：<code>c:\Users\18163\collect-form\final</code></p>
+      <ol>
+        <li>打开 PowerShell，进入项目目录。</li>
+        <li>
+          如果电脑装了 Python，运行下面这条命令：
+          <pre class="bg-light p-2 rounded mt-1 mb-1"><code>python -m http.server 8000</code></pre>
+          如果没有 Python，也可以用 Node 的方式：
+          <pre class="bg-light p-2 rounded mt-1 mb-1"><code>npx serve</code></pre>
+        </li>
+        <li>看到提示后，打开浏览器，访问 <code>http://localhost:8000</code>（或命令行显示的地址）。</li>
+        <li>点击页面里的导航即可在“首页 / 自习室 / 食堂”之间切换。</li>
+      </ol>
+    </section>
+
+    <!-- 功能清单 -->
+    <section class="card-custom p-4 mb-3">
+      <h5 class="mb-3"><i class="fa-solid fa-list-check text-primary"></i> 二、功能清单</h5>
+      <div class="mb-2"><strong>1. 首页总览（index.html）</strong></div>
+      <ul>
+        <li>顶部统计卡片：座位总数、空闲座位、今日访问、开放场馆，带数字滚动动画。</li>
+        <li>人流趋势折线图（ECharts）：对比自习区与食堂区各时段人流。</li>
+        <li>场馆使用率柱状图（ECharts）：颜色随使用率高低变化。</li>
+        <li>本周访问趋势面积图（ECharts）。</li>
+        <li>校园场馆三维导览（Three.js）：可拖动旋转、滚轮缩放，建筑高度对应使用率。</li>
+        <li>最新通知公告列表。</li>
+      </ul>
+      <div class="mb-2"><strong>2. 自习室查询（study.html）</strong></div>
+      <ul>
+        <li>搜索：按自习室名称关键词实时搜索。</li>
+        <li>筛选：按楼栋、状态、是否空调筛选，可组合使用。</li>
+        <li>新增：点击“新增自习室”填写表单并保存。</li>
+        <li>修改：点击卡片上的“修改信息”可编辑已有记录。</li>
+        <li>数据保存在浏览器本地（localStorage），刷新不丢失；可一键“恢复默认数据”。</li>
+      </ul>
+      <div class="mb-2"><strong>3. 食堂信息（canteen.html）</strong></div>
+      <ul>
+        <li>各食堂繁忙度柱状图（ECharts）。</li>
+        <li>搜索与菜系筛选。</li>
+        <li>食堂卡片：评分、繁忙度、开放时间、人均、推荐菜。</li>
+      </ul>
+    </section>
+
+    <!-- 错误提示说明 -->
+    <section class="card-custom p-4 mb-3">
+      <h5 class="mb-3"><i class="fa-solid fa-circle-info text-primary"></i> 三、错误提示说明</h5>
+      <p>项目内置了完整的错误与状态提示，出现下列提示时按对应方法处理即可。</p>
+      <ol>
+        <li>
+          <strong>“无法加载数据文件……需通过本地服务器运行”</strong>——说明你是直接双击打开的 HTML。
+          请回到“一、如何运行”，用本地服务器启动后再访问。
+        </li>
+        <li>
+          <strong>“加载数据失败……请检查 data 文件是否存在”</strong>——检查 data 文件夹里的
+          dashboard.json、study.json、canteen.json 是否齐全。
+        </li>
+        <li>
+          <strong>“三维场景加载失败：Three.js 库未成功引入”</strong>——一般是网络问题导致 CDN 没加载成功，
+          检查网络后刷新页面即可。
+        </li>
+        <li>
+          <strong>表单提示“请填写名称 / 空闲座位不能大于总座位”等</strong>——这是新增或修改时的校验提醒，
+          按提示修正内容后再保存。
+        </li>
+        <li>
+          <strong>数据改动后想还原</strong>——在自习室页面点击“恢复默认数据”，会清空本地改动并重新加载初始 JSON。
+        </li>
+      </ol>
+    </section>
+
+    <!-- 技术栈 -->
+    <section class="card-custom p-4">
+      <h5 class="mb-3"><i class="fa-solid fa-toolbox text-primary"></i> 四、技术栈</h5>
+      <ul>
+        <li>HTML5 + CSS3（CSS 变量、媒体查询响应式）</li>
+        <li>JavaScript（ES6+）</li>
+        <li>Bootstrap 5（响应式布局、模态框、组件）</li>
+        <li>jQuery（DOM 操作与事件绑定）</li>
+        <li>ECharts 5（折线图、柱状图、面积图）</li>
+        <li>Three.js（三维校园场馆展示，含 OrbitControls 交互）</li>
+        <li>本地 JSON 数据 + localStorage 持久化</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2026 校园自习与生活服务中心 · 课程设计作品</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    $(function () { App.setActiveNav('help'); });
+  </script>
+</body>
+</html>

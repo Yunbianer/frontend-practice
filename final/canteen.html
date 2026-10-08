@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>食堂信息 - 校园生活服务中心</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="navbar navbar-expand-lg fixed-top site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-graduation-cap"></i>校园生活服务中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" data-page="home" href="index.html">首页总览</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="study" href="study.html">自习室查询</a></li>
+          <li class="nav-item"><a class="nav-link active" data-page="canteen" href="canteen.html">食堂信息</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>食堂信息一览</h1>
+      <p>查看各食堂菜系、评分与实时繁忙度，错峰就餐不用排队。</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== 繁忙度图表 ===== -->
+    <section class="card-custom p-3 mb-3">
+      <h6 class="mb-3"><i class="fa-solid fa-fire text-primary"></i> 各食堂当前繁忙度</h6>
+      <div id="canteen-chart" class="chart-box"></div>
+    </section>
+
+    <!-- ===== 工具栏 ===== -->
+    <section class="card-custom p-3 mb-3">
+      <div class="row g-2 align-items-end">
+        <div class="col-md-5">
+          <label class="form-label small text-muted mb-1">搜索食堂</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="searchInput" class="form-control" placeholder="输入食堂名称或菜系…">
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <label class="form-label small text-muted mb-1">菜系筛选</label>
+          <select id="filterCuisine" class="form-select">
+            <option value="">全部菜系</option>
+          </select>
+        </div>
+        <div class="col-6 col-md-4">
+          <small id="resultCount" class="text-muted d-block">共 0 个食堂</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 食堂列表 ===== -->
+    <section id="canteenList"></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2026 校园自习与生活服务中心 · <a href="help.html" class="text-white-50">运行说明</a> · 课程设计作品</div>
+  </footer>
+
+  <!-- 依赖库 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/canteen.js"></script>
+</body>
+</html>
